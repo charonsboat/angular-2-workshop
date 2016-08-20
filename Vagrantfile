@@ -38,8 +38,9 @@ Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/trusty64"
 
     # set up network configuration
-    config.vm.network :forwarded_port, guest: 80,  host: 10080
-    config.vm.network :forwarded_port, guest: 443, host: 10443
+    config.vm.network :forwarded_port, guest: 3000,  host: 3000
+    config.vm.network :forwarded_port, guest: 3001,  host: 3001
+    # config.vm.network :forwarded_port, guest: 443, host: 10443
 
     ####
     ##
@@ -214,7 +215,7 @@ Vagrant.configure(2) do |config|
         args_node_version = "node"
 
         # @param: global node packages to install
-        args_node_packages = "npm pm2 gulp"
+        args_node_packages = "npm pm2 webpack typescript tsc concurrently"
 
         # call node provisioner
         config.vm.provision :shell, privileged: false, path: "#{scripts_url}/node", args: [ args_node_version, args_node_packages ]
