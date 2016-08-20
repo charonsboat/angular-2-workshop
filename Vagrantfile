@@ -255,4 +255,10 @@ Vagrant.configure(2) do |config|
 
         # call go provisioner
         # config.vm.provision :shell, privileged: false, path: "#{scripts_url}/go", args: [ args_go_version ]
+
+        ####
+        ## custom scripts
+        ####
+
+        config.vm.provision :shell, privileged: false, inline: "screen -S server -d -m bash -c 'cd /vagrant && npm start'", run: "always"
 end
