@@ -225,7 +225,7 @@ Vagrant.configure(2) do |config|
         ####
 
         # @param: (optional) location to run `npm install`
-        args_npm_install_dir = ""
+        args_npm_install_dir = "/vagrant"
 
         # call npm provisioner
         config.vm.provision :shell, privileged: false, path: "#{scripts_url}/npm", args: [ args_npm_install_dir ]
